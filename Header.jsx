@@ -1,5 +1,19 @@
 Header = React.createClass({
-    
+
+    updateHeader: function() {
+	var header = d3.select("#header");
+
+	var t1 = header.transition().delay(500).duration(4000);
+
+	t1.text("Sidereus Nuncius (The Starry Messenger)");
+	  
+
+    },
+
+    componentDidMount: function() {
+	this.updateHeader();
+    },
+	
     headStyle: {
 	color: 'white',
 	fontSize: '36px',
@@ -12,8 +26,7 @@ Header = React.createClass({
     render: function() {
 
 	return(
-	    <h1 style = {this.headStyle}>
-	      Sidereus Nuncius (The Starry Messenger)
+	    <h1 style = {this.headStyle} id = "header">
 	    </h1>
 	);
 

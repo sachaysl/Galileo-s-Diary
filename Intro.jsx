@@ -4,11 +4,13 @@ Intro = React.createClass({
 	var i = 0;
 	var data = [ "Discovery of Jupiter's satellites, Jan. 7, 1610"
 		   ];
+
+	var line1 = d3.select("#line1");
+	
+	var t0 = line1.transition().delay(2000).duration(3000);
 	
 	//typewriter effect
-	d3.select('text').transition()
-	    .duration(3000)
-	    .ease("linear")
+	t0.ease("linear")
 	    .tween("text", function () {
 		var newText = data[i];
 		var textLength = newText.length;
@@ -23,7 +25,7 @@ Intro = React.createClass({
 		};
 	    });
 
-	i = (i + 1) % data.length;
+	//i = (i + 1) % data.length;
 
     },
 
@@ -46,9 +48,8 @@ Intro = React.createClass({
 
 	return(
 	    <svg height="30" width="850">
-	      <text x="460" y="15" fill="white" text-anchor="middle" fontSize="18px"
-		    fontFamily="Palatino">
-		Discovery of Jupiter's satellites, Jan. 7, 1610
+	      <text x="460" y="15" fill="white" fontSize="18px"
+		    fontFamily="Palatino" id = "line1">
 	      </text>
 	    </svg>
 
