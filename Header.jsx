@@ -5,7 +5,7 @@ Header = React.createClass({
 
 	var t1 = header.transition().delay(500).duration(4000);
 
-	t1.text("Sidereus Nuncius (The Starry Messenger)");
+	t1.text("SIDERIUS NUNCIUS (THE STARRY MESSENGER)");
 	  
 
     },
