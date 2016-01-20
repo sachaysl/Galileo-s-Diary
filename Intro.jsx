@@ -14,10 +14,10 @@ Intro = React.createClass({
 		     "our own times, their positions, and the observations made during the last two months",//6
 		     "about their movements and their changes of magnitude; and I summon all astronomers",  //7
 		     "to apply themselves to examine and determine their periodic times, which it has not", //8
-		     "been permitted me to achieve up to this day, owing to the restriction of my time. I", //9
-		     "give them warning however again, such that they may not approach such an inquiry to", //10
-		     "no purpose, that they will want a very accurate telescope, and such as I have",       //11
-		     "described in the beginning of this account." //12
+		     "been permitted me to achieve up to this day, owing to the restriction of my time. I give", //9
+		     "them warning however again, such that they may not approach such an inquiry to no", //10
+		     "purpose, that they will want a very accurate telescope, and such as I have described",       //11
+		     "in the beginning of this account." //12
 		   ];
 
 	// in the beginning of this account.
@@ -259,7 +259,7 @@ Intro = React.createClass({
 
 	var paragraph1Line12 = d3.select("#paragraph1Line12");
 
-	var t12 = paragraph1Line12.transition().delay(startTime + 12*printSpeed + linePause).duration(printSpeed);
+	var t12 = paragraph1Line12.transition().delay(startTime + 12*printSpeed + linePause).duration(printSpeed/3);
 
 	t12.ease("linear")
 	    .tween("text", function () {
