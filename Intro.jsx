@@ -276,7 +276,13 @@ Intro = React.createClass({
 		};
 	    });
 
+	var text = d3.selectAll("text");
 
+	var t13 = text.transition().delay(startTime + 12*printSpeed + linePause + 5000).duration(2000);
+
+	t13.remove();
+
+	
 
 
     },
