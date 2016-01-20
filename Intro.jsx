@@ -346,6 +346,16 @@ Intro = React.createClass({
 	    .attr("visibility", "visible")
 	    .attr("points", calculateStarPoints(50, 50, 5, 10, 5))
 	    .attr("fill", "white");
+
+	d3.select("svg")
+	    .append("svg:polygon")
+	    .attr("id", "star_2")
+	    .attr("visibility", "visible")
+	    .attr("points", calculateStarPoints(50, 30, 8, 10, 1))
+	    .attr("fill", "none")
+	    .attr("stroke","white")
+	    .attr("stroke-width", "2");
+
     },
 
     componentDidMount: function() {
