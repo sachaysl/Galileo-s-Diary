@@ -340,21 +340,53 @@ Intro = React.createClass({
 	//using d3 we can now easily append our star to our svg using
 	//the following syntax
 
-	d3.select("svg")
-	    .append("svg:polygon")
-	    .attr("id", "star_1")
-	    .attr("visibility", "visible")
-	    .attr("points", calculateStarPoints(50, 50, 5, 10, 5))
-	    .attr("fill", "white");
+	//this star is relevant later
+//	d3.select("svg")
+//	    .append("svg:polygon")
+//	    .attr("id", "star_1")
+//	    .attr("visibility", "visible")
+//	    .attr("points", calculateStarPoints(50, 50, 5, 10, 5))
+//	    .attr("fill", "white");
 
+	//Jan 7th
 	d3.select("svg")
 	    .append("svg:polygon")
-	    .attr("id", "star_2")
+	    .attr("id", "jan7_star_1")
 	    .attr("visibility", "visible")
-	    .attr("points", calculateStarPoints(50, 30, 8, 10, 1))
+	    .attr("points", calculateStarPoints(50, 30, 8, 7, 0.5))
 	    .attr("fill", "none")
 	    .attr("stroke","white")
 	    .attr("stroke-width", "2");
+
+	d3.select("svg")
+	    .append("svg:polygon")
+	    .attr("id", "jan7_star_2")
+	    .attr("visibility", "visible")
+	    .attr("points", calculateStarPoints(100, 31, 8, 7, 0.5))
+	    .attr("fill", "none")
+	    .attr("stroke","white")
+	    .attr("stroke-width", "2");
+
+	d3.select("svg")
+	    .append("ellipse")
+	    .attr("cx", 136)
+	    .attr("cy", 34)
+	    .attr("rx", 10)
+	    .attr("ry", 8)
+	    .attr("fill", "none")
+	    .attr("stroke", "white")
+	    .attr("stroke-width", "2");
+
+	d3.select("svg")
+	    .append("svg:polygon")
+	    .attr("id", "jan7_star_3")
+	    .attr("visibility", "visible")
+	    .attr("points", calculateStarPoints(193, 32, 8, 7, 0.5))
+	    .attr("fill", "none")
+	    .attr("stroke","white")
+	    .attr("stroke-width", "2");
+
+
 
     },
 
