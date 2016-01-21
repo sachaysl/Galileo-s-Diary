@@ -4,8 +4,7 @@ App = React.createClass({
 
 	return(
 	    <div>
-	      <Header/>
-	      <Intro/>
+	      <Calendar />
 	    </div>
 	);
 
