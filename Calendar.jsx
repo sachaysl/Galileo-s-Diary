@@ -110,18 +110,9 @@ Calendar = React.createClass({
 		    .attr("points", calculateStarPoints(star4[0], star4[1], star4[2], star4[3], star4[4]))
 		    .attr("fill", "none")
 		    .attr("stroke","white")
-		    .attr("stroke-width", star4[5])
-		    .rotate(90);
+		    .attr("stroke-width", star4[5]);
 	    }
 
-	 //   d3.select("svg")
-	//	.append("line")
-	//	.attr("y1", jupiter[1] + jupiter[3] + 2)
-	//	.attr("y2", jupiter[1] + jupiter[3] + 2)
-	//	.attr("x1", 10)
-	//	.attr("x2", 300)
-	//	.attr("stroke", "grey")
-	//	.attr("stroke-width", "1");
 	}
 
 	function drawLines(firstLine, length, width, colour, distBetween, n) {
@@ -143,13 +134,36 @@ Calendar = React.createClass({
 	    }
 
 	}
+	var basex = 20;
+	var basey = 44;
 	var dist = 25;
-	drawLines([10,44],250,0.1,"grey",dist,25);
-	drawObservation("jan7",[50,30,6,6,0.4,"2"],[100,31,6,6,0.4,"2"],[193,32,6,6,0.4,"2"],[],[136,34,8,7,"2"]);
-	drawObservation("jan8",[50,30 + dist,8,7,0.5,"2"],[100,31 + dist,8,7,0.5,"2"],[193,32 + dist,8,7,0.5,"2"],
-			[],[136,34 + dist,10,8,"2"]);
+	var length = 250;
+	var fontSizeDate = "14";
+	var fontFamDate = "cursive";
 	
+	drawLines([basex,basey],length,0.1,"grey",dist,25);
+	drawObservation("jan7",[(basex - 10) + 50,30,6,6,0.4,"2"],
+			[(basex - 10) + 100,31,6,6,0.4,"2"],
+			[(basex - 10) + 193,32,6,6,0.4,"2"],
+			[],
+			[(basex - 10) + 136,34,8,7,"2"]);
 
+	d3.select("svg").append("text")
+	    .attr("x", basex - 20)
+	    .attr("y", basey - 4)
+	    .style("font-family", fontFamDate)
+	    .style("font-size", fontSizeDate)
+	    .style("fill", "white")
+	    .text("7");
+
+	d3.select("svg").append("text")
+	    .attr("x", basex + length + 10)
+	    .attr("y", basey - 2)
+	    .style("fill", "white")
+	    .style("font-family", "cursive")
+	    .style("font-size", "14")
+	    .text("With my new telescope, I saw 3 stars around Jupiter in a straight line parallel to the ecliptic");
+	
 
 	
     },
@@ -168,7 +182,7 @@ Calendar = React.createClass({
 	return(
 
 	    <div textAlign = "center" >
-	      <svg style = {this.svgStyle} height="600" width="800">
+	      <svg style = {this.svgStyle} height="600" width="850">
 	      </svg>
 	    </div>
 	);
