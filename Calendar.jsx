@@ -56,6 +56,7 @@ Calendar = React.createClass({
 		    .append("svg:polygon")
 		    .attr("id", date + "_star_1")
 		    .attr("visibility", "visible")
+		    .attr("transform", "rotate(90," + star1[0] + "," + star1[1] + ")")
 		    .attr("points", calculateStarPoints(star1[0], star1[1], star1[2], star1[3], star1[4]))
 		    .attr("fill", "none")
 		    .attr("stroke","white")
@@ -66,6 +67,7 @@ Calendar = React.createClass({
 		    .append("svg:polygon")
 		    .attr("id", date +"_star_2")
 		    .attr("visibility", "visible")
+		    .attr("transform", "rotate(90," + star2[0] + "," + star2[1] + ")")
 		    .attr("points", calculateStarPoints(star2[0], star2[1], star2[2], star2[3], star2[4]))
 		    .attr("fill", "none")
 		    .attr("stroke","white")
@@ -86,25 +88,30 @@ Calendar = React.createClass({
 	    }
 
 	    if (star3 != []) {
-	       d3.select("svg")
-		   .append("svg:polygon")
-		   .attr("id", date + "_star_3")
-		   .attr("visibility", "visible")
-		   .attr("points", calculateStarPoints(star3[0], star3[1], star3[2], star3[3], star3[4]))
-		   .attr("fill", "none")
-		   .attr("stroke","white")
-		   .attr("stroke-width", star3[5]);
+		d3.select("svg")
+		    .append("svg:polygon")
+		    .attr("id", date + "_star_3")
+		    .attr("visibility", "visible")
+		    .attr("transform", "rotate(90," + star3[0] + "," + star3[1] + ")")
+		    .attr("points", calculateStarPoints(star3[0], star3[1], star3[2], star3[3], star3[4]))
+		    .attr("fill", "none")
+		    .attr("stroke","white")
+		    .attr("stroke-width", star3[5]);
+		
+		
 	    }
 
 	    if (star4 != []) {
-	       d3.select("svg")
-		   .append("svg:polygon")
-		   .attr("id", date + "_star_4")
-		   .attr("visibility", "visible")
-		   .attr("points", calculateStarPoints(star4[0], star4[1], star4[2], star4[3], star4[4]))
-		   .attr("fill", "none")
-		   .attr("stroke","white")
-		   .attr("stroke-width", star4[5]);
+		d3.select("svg")
+		    .append("svg:polygon")
+		    .attr("id", date + "_star_4")
+		    .attr("visibility", "visible")
+		    .attr("transform", "rotate(90," + star4[0] + "," + star4[1] + ")")
+		    .attr("points", calculateStarPoints(star4[0], star4[1], star4[2], star4[3], star4[4]))
+		    .attr("fill", "none")
+		    .attr("stroke","white")
+		    .attr("stroke-width", star4[5])
+		    .rotate(90);
 	    }
 
 	 //   d3.select("svg")
@@ -136,9 +143,11 @@ Calendar = React.createClass({
 	    }
 
 	}
-	
-	drawLines([10,44],290,0.5,"grey",20,1);
-	drawObservation("jan7",[50,30,8,7,0.5,"2"],[100,31,8,7,0.5,"2"],[193,32,8,7,0.5,"2"],[],[136,34,10,8,"2"]);
+	var dist = 25;
+	drawLines([10,44],250,0.1,"grey",dist,25);
+	drawObservation("jan7",[50,30,6,6,0.4,"2"],[100,31,6,6,0.4,"2"],[193,32,6,6,0.4,"2"],[],[136,34,8,7,"2"]);
+	drawObservation("jan8",[50,30 + dist,8,7,0.5,"2"],[100,31 + dist,8,7,0.5,"2"],[193,32 + dist,8,7,0.5,"2"],
+			[],[136,34 + dist,10,8,"2"]);
 	
 
 
@@ -159,7 +168,7 @@ Calendar = React.createClass({
 	return(
 
 	    <div textAlign = "center" >
-	      <svg style = {this.svgStyle} height="500" width="800">
+	      <svg style = {this.svgStyle} height="600" width="800">
 	      </svg>
 	    </div>
 	);
