@@ -180,12 +180,73 @@ Calendar = React.createClass({
 		.attr("width", 500)
 		.attr("height", 400)
 		.style("stroke", "white");
-	    
+
+//	    d3.select("svg")
+//		.append("text")
+//		.attr("id","Lines")
+//		.attr("x", 330)
+//		.attr("y", 130)
+//		.style("font-family", "cursive")
+//		.style("font-size", "14")
+//		.style("fill", "white")
+	    //		.text("placeholder");
+
+	    typewriter(10);
 	}
 
 	function removeFullText() {
 	    d3.select("rect").remove();
+	    d3.selectAll("text.Lines").remove();
 	}
+
+	function typewriter(n) {
+	    for (var i = 0; i < n; i++) {
+		d3.select("svg")
+		    .append("text")
+		    .attr("class", "Lines")
+		    .attr("id","Line" + i)
+		    .attr("x", 330)
+		    .attr("y", 130 + i * 25)
+		    .style("font-family", "cursive")
+		    .style("font-size", "14")
+		    .style("fill", "white")
+		    .text("placeholder");
+            }
+		
+	    /*
+	    var t = line.transition().delay(start).duration(length);
+
+	    t.ease("linear")
+	    .tween("text", function () {
+		var newText = data1[0];
+		var textLength = newText.length;
+		return function (t) {
+		    if (t < 1) {
+			this.textContent = newText.slice(0,
+							 Math.round( t * textLength))
+			    + ((Date.now()%500 > 100)?"|":"");
+		    } else {
+			this.textContent = newText;
+		    }
+		};
+	    });
+	     */
+	}
+	
+	var data1 = [["On the 7th day of January in the present year, 1610, in the first hour of the following", //0
+		    "night, when I was viewing the constellations of the heavens through a telescope, the", //1
+		    "planet Jupiter presented itself to my view, and as I had prepared for myself a very",
+		    "excellent instrument, I noticed a circumstance which I had never been able to notice",
+		    "before, owing to want of power in my other telescope, namely, that three little stars,",
+		    "small but very bright, were near the planet; and although I believed them to belong to",
+		    "the number of the fixed stars, yet they made me somewhat wonder, because they seemed to",
+		    "be arranged exactly in a straight line, parallel to the ecliptic, and to be brighter",
+		    "than the rest of the stars, equal to them in magnitude."
+		     ]
+
+
+		    ]
+
 	
     },
     
