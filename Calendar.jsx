@@ -106,7 +106,17 @@ Calendar = React.createClass({
 		   .attr("stroke","white")
 		   .attr("stroke-width", star4[5]);
 	    }
+
+	    d3.select("svg")
+		.append("line")
+		.attr("y1", jupiter[1] + jupiter[3] + 2)
+		.attr("y2", jupiter[1] + jupiter[3] + 2)
+		.attr("x1", 10)
+		.attr("x2", 300)
+		.attr("stroke", "grey")
+		.attr("stroke-width", "1");
 	    
+
 	}
 
 	drawObservation("jan7",[50,30,8,7,0.5,"2"],[100,31,8,7,0.5,"2"],[193,32,8,7,0.5,"2"],[],[136,34,10,8,"2"]);
