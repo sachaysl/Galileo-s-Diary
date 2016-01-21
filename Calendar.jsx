@@ -47,53 +47,70 @@ Calendar = React.createClass({
 	}
 	//using d3 we can now easily append our star to our svg using
 	//the following syntax
+	
+	function drawObservation(date,star1, star2, star3, star4, jupiter) {
 
-	//this star is relevant later
-//	d3.select("svg")
-//	    .append("svg:polygon")
-//	    .attr("id", "star_1")
-//	    .attr("visibility", "visible")
-//	    .attr("points", calculateStarPoints(50, 50, 5, 10, 5))
-//	    .attr("fill", "white");
+	    if (star1 != []) {
+		
+		d3.select("svg")
+		    .append("svg:polygon")
+		    .attr("id", date + "_star_1")
+		    .attr("visibility", "visible")
+		    .attr("points", calculateStarPoints(star1[0], star1[1], star1[2], star1[3], star1[4]))
+		    .attr("fill", "none")
+		    .attr("stroke","white")
+		    .attr("stroke-width", star1[5]);
+	    }
+	    if (star2 != []) {
+		d3.select("svg")
+		    .append("svg:polygon")
+		    .attr("id", date +"_star_2")
+		    .attr("visibility", "visible")
+		    .attr("points", calculateStarPoints(star2[0], star2[1], star2[2], star2[3], star2[4]))
+		    .attr("fill", "none")
+		    .attr("stroke","white")
+		    .attr("stroke-width", star2[5]);
+	    }
 
-	//Jan 7th
-	d3.select("svg")
-	    .append("svg:polygon")
-	    .attr("id", "jan7_star_1")
-	    .attr("visibility", "visible")
-	    .attr("points", calculateStarPoints(50, 30, 8, 7, 0.5))
-	    .attr("fill", "none")
-	    .attr("stroke","white")
-	    .attr("stroke-width", "2");
+	    if (jupiter != []) {
+		d3.select("svg")
+		    .append("ellipse")
+		    .attr("cx", jupiter[0])
+		    .attr("cy", jupiter[1])
+		    .attr("rx", jupiter[2])
+		    .attr("ry", jupiter[3])
+		    .attr("fill", "none")
+		    .attr("stroke", "white")
+		    .attr("fill", "white")
+		    .attr("stroke-width", jupiter[4]);
+	    }
 
-	d3.select("svg")
-	    .append("svg:polygon")
-	    .attr("id", "jan7_star_2")
-	    .attr("visibility", "visible")
-	    .attr("points", calculateStarPoints(100, 31, 8, 7, 0.5))
-	    .attr("fill", "none")
-	    .attr("stroke","white")
-	    .attr("stroke-width", "2");
+	    if (star3 != []) {
+	       d3.select("svg")
+		   .append("svg:polygon")
+		   .attr("id", date + "_star_3")
+		   .attr("visibility", "visible")
+		   .attr("points", calculateStarPoints(star3[0], star3[1], star3[2], star3[3], star3[4]))
+		   .attr("fill", "none")
+		   .attr("stroke","white")
+		   .attr("stroke-width", star3[5]);
+	    }
 
-	d3.select("svg")
-	    .append("ellipse")
-	    .attr("cx", 136)
-	    .attr("cy", 34)
-	    .attr("rx", 10)
-	    .attr("ry", 8)
-	    .attr("fill", "none")
-	    .attr("stroke", "white")
-	    .attr("stroke-width", "2");
+	    if (star4 != []) {
+	       d3.select("svg")
+		   .append("svg:polygon")
+		   .attr("id", date + "_star_4")
+		   .attr("visibility", "visible")
+		   .attr("points", calculateStarPoints(star4[0], star4[1], star4[2], star4[3], star4[4]))
+		   .attr("fill", "none")
+		   .attr("stroke","white")
+		   .attr("stroke-width", star4[5]);
+	    }
+	    
+	}
 
-	d3.select("svg")
-	    .append("svg:polygon")
-	    .attr("id", "jan7_star_3")
-	    .attr("visibility", "visible")
-	    .attr("points", calculateStarPoints(193, 32, 8, 7, 0.5))
-	    .attr("fill", "none")
-	    .attr("stroke","white")
-	    .attr("stroke-width", "2");
-
+	drawObservation("jan7",[50,30,8,7,0.5,"2"],[100,31,8,7,0.5,"2"],[193,32,8,7,0.5,"2"],[],[136,34,10,8,"2"]);
+	
 
 
 	
