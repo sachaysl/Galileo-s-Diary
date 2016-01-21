@@ -181,17 +181,7 @@ Calendar = React.createClass({
 		.attr("height", 400)
 		.style("stroke", "white");
 
-//	    d3.select("svg")
-//		.append("text")
-//		.attr("id","Lines")
-//		.attr("x", 330)
-//		.attr("y", 130)
-//		.style("font-family", "cursive")
-//		.style("font-size", "14")
-//		.style("fill", "white")
-	    //		.text("placeholder");
-
-	    typewriter(10);
+	    janTypewriter(7,data1[0].length);
 	}
 
 	function removeFullText() {
@@ -199,18 +189,20 @@ Calendar = React.createClass({
 	    d3.selectAll("text.Lines").remove();
 	}
 
-	function typewriter(n) {
+	function janTypewriter(day,numberOfLines) {
+	    var n = numberOfLines;
+	    
 	    for (var i = 0; i < n; i++) {
 		d3.select("svg")
 		    .append("text")
 		    .attr("class", "Lines")
 		    .attr("id","Line" + i)
-		    .attr("x", 330)
-		    .attr("y", 130 + i * 25)
+		    .attr("x", 350)
+		    .attr("y", 170 + i * 25)
 		    .style("font-family", "cursive")
 		    .style("font-size", "14")
 		    .style("fill", "white")
-		    .text("placeholder");
+		    .text(data1[day-7][i]);
             }
 		
 	    /*
@@ -233,15 +225,17 @@ Calendar = React.createClass({
 	     */
 	}
 	
-	var data1 = [["On the 7th day of January in the present year, 1610, in the first hour of the following", //0
-		    "night, when I was viewing the constellations of the heavens through a telescope, the", //1
-		    "planet Jupiter presented itself to my view, and as I had prepared for myself a very",
-		    "excellent instrument, I noticed a circumstance which I had never been able to notice",
-		    "before, owing to want of power in my other telescope, namely, that three little stars,",
-		    "small but very bright, were near the planet; and although I believed them to belong to",
-		    "the number of the fixed stars, yet they made me somewhat wonder, because they seemed to",
-		    "be arranged exactly in a straight line, parallel to the ecliptic, and to be brighter",
-		    "than the rest of the stars, equal to them in magnitude."
+	var data1 = [["On the 7th day of January in the present year, 1610, in the first hour",
+		      " of the following night, when I was viewing the constellations of the",
+		      "heavens through a telescope, the planet Jupiter presented itself to my",
+		      "view, and as I had prepared for myself a very excellent instrument, I",
+		      "noticed a circumstance which I had never been able to notice before,",
+		      "owing to want of power in my other telescope, namely, that three little",
+		      "stars, small but very bright, were near the planet; and although I",
+		      "believed them to belong to the number of the fixed stars, yet they made",
+		      "me somewhat wonder, because they seemed to be arranged exactly in a",
+		      "straight line, parallel to the ecliptic, and to be brighter than the",
+		      "rest of the stars, equal to them in magnitude."
 		     ]
 
 
