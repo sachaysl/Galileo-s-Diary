@@ -175,10 +175,10 @@ Calendar = React.createClass({
 	    d3.select("svg")
 		.append("rect")
 		.attr("id","#fulltext")
-		.attr("x", 500)
-		.attr("y", 300)
-		.attr("width", 300)
-		.attr("height", 300)
+		.attr("x", 300)
+		.attr("y", 100)
+		.attr("width", 500)
+		.attr("height", 400)
 		.style("stroke", "white");
 	    
 	}
