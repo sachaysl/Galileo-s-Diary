@@ -148,14 +148,32 @@ Calendar = React.createClass({
 			[],
 			[(basex - 10) + 136,34,8,7,"2"]);
 
-//	d3.select("svg").append("text")
-//	    .attr("x", basex - 20)
-//	    .attr("y", basey - 4)
-//	    .style("font-family", fontFamDate)
-//	    .style("font-size", fontSizeDate)
-//	    .style("fill", "white")
-//	    .text("7");
 
+	d3.select("svg").append("text")
+	    .attr("x", basex - 20)
+	    .attr("y", basey - 4)
+	    .style("font-family", fontFamDate)
+	    .style("font-size", fontSizeDate)
+	    .style("fill", "white")
+	    .text("7")
+	    .on("mouseover", jan7FullText)
+	    .on("mouseout", removeJan7FullText);
+
+	function jan7FullText() {
+
+	    d3.select("svg")
+		.append("text")
+		.style("fill", 'white')
+		.attr("id", "jan7fulltext")
+		.attr("x", 300)
+		.attr("y", 300)
+		.text("Placeholder");
+	}
+
+	function removeJan7FullText() {
+	    d3.select("#jan7fulltext").remove();
+	}
+	
 	d3.select("svg").append("text")
 	    .attr("x", basex + length + 10)
 	    .attr("y", basey - 2)
@@ -186,15 +204,15 @@ Calendar = React.createClass({
 	var basex = 20;
 	var basey = 44;
 	var dist = 25;
+	//<text x={basex -20} y={basey - 4} style = {this.dateStyle} onClick={this.onUserClick} >
+	//    7
+	//</text>
+
 	
 	return(
 
 	    <div textAlign = "center" >
-	      <svg style = {this.svgStyle} height="600" width="850">
-		<text x={basex -20} y={basey - 4} style = {this.dateStyle} >
-		  7
-		</text>
-		
+	      <svg style = {this.svgStyle} height="600" width="850">		
 	      </svg>
 	    </div>
 	);
