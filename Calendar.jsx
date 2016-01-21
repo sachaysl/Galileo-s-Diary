@@ -180,7 +180,7 @@ Calendar = React.createClass({
 		.attr("width", 500)
 		.attr("height", 400)
 		.style("stroke", "white");
-
+	    //fullText needs to know which date we are on
 	    janTypewriter(7,data1[0].length);
 	}
 
@@ -192,7 +192,7 @@ Calendar = React.createClass({
 	function janTypewriter(day,numberOfLines) {
 	    var n = numberOfLines;
 	    
-	    for (var i = 0; i < n; i++) {
+	    for (var i = 0; i < 9; i++) {
 		d3.select("svg")
 		    .append("text")
 		    .attr("class", "Lines")
@@ -202,28 +202,34 @@ Calendar = React.createClass({
 		    .style("font-family", "cursive")
 		    .style("font-size", "14")
 		    .style("fill", "white")
-		    .text(data1[day-7][i]);
-            }
-		
-	    /*
-	    var t = line.transition().delay(start).duration(length);
+		    .text("");
+	    // .text(data1[day-7][i]);
+	    
+		var line = d3.select("#Line" + i);
+		var t = line.transition().delay(0 + i * 3000).duration(3000);
+	
+	        t.ease("linear")
+		    .tween("text", function() {
+	    		var newText = data1[day-7][0];
+		        var textLength = newText.length;
+			return function (t) {
+		    	    if (t < 1) {
+				this.textContent = newText.slice(0,
+								 Math.round( t * textLength))
+				    + ((Date.now()%500 > 100)?"|":"");
+			    } else {
+				this.textContent = newText;
+			    }
+			}
+		});
 
-	    t.ease("linear")
-	    .tween("text", function () {
-		var newText = data1[0];
-		var textLength = newText.length;
-		return function (t) {
-		    if (t < 1) {
-			this.textContent = newText.slice(0,
-							 Math.round( t * textLength))
-			    + ((Date.now()%500 > 100)?"|":"");
-		    } else {
-			this.textContent = newText;
-		    }
-		};
-	    });
-	     */
+	    }
+	
+	    
+		      
 	}
+	
+	
 	
 	var data1 = [["On the 7th day of January in the present year, 1610, in the first hour",
 		      " of the following night, when I was viewing the constellations of the",
