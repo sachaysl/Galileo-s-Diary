@@ -107,18 +107,37 @@ Calendar = React.createClass({
 		   .attr("stroke-width", star4[5]);
 	    }
 
-	    d3.select("svg")
-		.append("line")
-		.attr("y1", jupiter[1] + jupiter[3] + 2)
-		.attr("y2", jupiter[1] + jupiter[3] + 2)
-		.attr("x1", 10)
-		.attr("x2", 300)
-		.attr("stroke", "grey")
-		.attr("stroke-width", "1");
-	    
-
+	 //   d3.select("svg")
+	//	.append("line")
+	//	.attr("y1", jupiter[1] + jupiter[3] + 2)
+	//	.attr("y2", jupiter[1] + jupiter[3] + 2)
+	//	.attr("x1", 10)
+	//	.attr("x2", 300)
+	//	.attr("stroke", "grey")
+	//	.attr("stroke-width", "1");
 	}
 
+	function drawLines(firstLine, length, width, colour, distBetween, n) {
+	    //firstLine = [x,y]
+
+	    var x = firstLine[0];
+	    var y = firstLine[1];
+	   
+	    
+	    for (var i = 0; i < n; i++) {
+		d3.select("svg")
+		    .append("line")
+		    .attr("y1", y  + i * distBetween)
+		    .attr("y2",  y  + i * distBetween)
+		    .attr("x1", x)
+		    .attr("x2", x + length)
+		    .attr("stroke", colour)
+		    .attr("stroke-width", width);
+	    }
+
+	}
+	
+	drawLines([10,44],290,0.5,"grey",20,1);
 	drawObservation("jan7",[50,30,8,7,0.5,"2"],[100,31,8,7,0.5,"2"],[193,32,8,7,0.5,"2"],[],[136,34,10,8,"2"]);
 	
 
