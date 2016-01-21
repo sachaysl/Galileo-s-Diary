@@ -148,13 +148,13 @@ Calendar = React.createClass({
 			[],
 			[(basex - 10) + 136,34,8,7,"2"]);
 
-	d3.select("svg").append("text")
-	    .attr("x", basex - 20)
-	    .attr("y", basey - 4)
-	    .style("font-family", fontFamDate)
-	    .style("font-size", fontSizeDate)
-	    .style("fill", "white")
-	    .text("7");
+//	d3.select("svg").append("text")
+//	    .attr("x", basex - 20)
+//	    .attr("y", basey - 4)
+//	    .style("font-family", fontFamDate)
+//	    .style("font-size", fontSizeDate)
+//	    .style("fill", "white")
+//	    .text("7");
 
 	d3.select("svg").append("text")
 	    .attr("x", basex + length + 10)
@@ -163,9 +163,7 @@ Calendar = React.createClass({
 	    .style("font-family", "cursive")
 	    .style("font-size", "14")
 	    .text("With my new telescope, I saw 3 stars around Jupiter in a straight line parallel to the ecliptic");
-	
-
-	
+		
     },
     
     componentDidMount: function() {
@@ -176,13 +174,27 @@ Calendar = React.createClass({
 	margin: 'auto',
 	display: 'block'
     },
-    
-    render: function() {
 
+    dateStyle: {
+	fontFamily: 'cursive',
+	fontSize: '14',
+	fill : 'white',
+	cursor: 'pointer'
+    },
+
+    render: function() {
+	var basex = 20;
+	var basey = 44;
+	var dist = 25;
+	
 	return(
 
 	    <div textAlign = "center" >
 	      <svg style = {this.svgStyle} height="600" width="850">
+		<text x={basex -20} y={basey - 4} style = {this.dateStyle} >
+		  7
+		</text>
+		
 	      </svg>
 	    </div>
 	);
