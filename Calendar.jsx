@@ -147,41 +147,46 @@ Calendar = React.createClass({
 			[(basex - 10) + 193,32,6,6,0.4,"2"],
 			[],
 			[(basex - 10) + 136,34,8,7,"2"]);
+	writeSummaryTextAndDate(0);
 
+	function writeSummaryTextAndDate(n) {
+	    
+	   d3.select("svg").append("text")
+		.attr("x", basex - 20)
+		.attr("y", basey - 4 + (n * 25))
+		.style("font-family", fontFamDate)
+		.style("font-size", fontSizeDate)
+		.style("fill", "white")
+		.text("" + n+7)
+		.on("mouseover", fullText)
+		.on("mouseout", removeFullText);
 
-	d3.select("svg").append("text")
-	    .attr("x", basex - 20)
-	    .attr("y", basey - 4)
-	    .style("font-family", fontFamDate)
-	    .style("font-size", fontSizeDate)
-	    .style("fill", "white")
-	    .text("7")
-	    .on("mouseover", jan7FullText)
-	    .on("mouseout", removeJan7FullText);
+	    d3.select("svg").append("text")
+		.attr("x", basex + length + 10)
+		.attr("y", basey - 2 + (n * 25))
+		.style("fill", "white")
+		.style("font-family", "cursive")
+		.style("font-size", "14")
+		.text("With my new telescope, I saw 3 stars around Jupiter in a straight line parallel to the ecliptic");
+	}
 
-	function jan7FullText() {
+	function fullText() {
 
 	    d3.select("svg")
-		.append("text")
-		.style("fill", 'white')
-		.attr("id", "jan7fulltext")
-		.attr("x", 300)
+		.append("rect")
+		.attr("id","#fulltext")
+		.attr("x", 500)
 		.attr("y", 300)
-		.text("Placeholder");
+		.attr("width", 300)
+		.attr("height", 300)
+		.style("stroke", "white");
+	    
 	}
 
-	function removeJan7FullText() {
-	    d3.select("#jan7fulltext").remove();
+	function removeFullText() {
+	    d3.select("rect").remove();
 	}
 	
-	d3.select("svg").append("text")
-	    .attr("x", basex + length + 10)
-	    .attr("y", basey - 2)
-	    .style("fill", "white")
-	    .style("font-family", "cursive")
-	    .style("font-size", "14")
-	    .text("With my new telescope, I saw 3 stars around Jupiter in a straight line parallel to the ecliptic");
-		
     },
     
     componentDidMount: function() {
