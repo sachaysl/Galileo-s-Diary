@@ -173,13 +173,16 @@ Calendar = React.createClass({
 	
 	function writeSummaryTextAndDate(n) {
 	    
-	   d3.select("svg").append("text")
+	    d3.select("svg").append("text")
+		.attr("id", "s" + (n+7))
+		.attr("class", "summary")
 		.attr("x", basex - 20)
 		.attr("y", basey - 4 + (n * 25))
 		.style("font-family", fontFamDate)
 		.style("font-size", fontSizeDate)
 		.style("fill", "white")
 		.text("" + (n+7))
+		.style("cursor", "pointer")
 		.on("mouseover", function() { return fullText(n);})
 		.on("mouseout", removeFullText);
 
@@ -195,6 +198,9 @@ Calendar = React.createClass({
 
 	function fullText(n) {
 
+	    d3.select("#s" + (n+7))
+		.style("fill", "rgb(178,255,255)");
+	    
 	    d3.select("svg")
 		.append("rect")
 		.attr("id","#fulltext")
@@ -202,13 +208,18 @@ Calendar = React.createClass({
 		.attr("y", 100)
 		.attr("width", 520)
 		.attr("height", 400)
-		.style("stroke", "white");
+		.style("stroke", "white")
+		.style("stroke-width", "1");
 
 	    //fullText needs to know which date we are on
 	    janTypewriter(7,data1[n].length);
 	}
 
 	function removeFullText() {
+
+	    d3.selectAll("text.summary")
+		.style("fill", "white");
+
 	    d3.select("rect").remove();
 	    d3.selectAll("text.Lines").remove();
 	}
@@ -246,9 +257,6 @@ Calendar = React.createClass({
 	      "straight line, parallel to the ecliptic, and to be brighter than the",
 	     "rest of the stars, equal to them in magnitude."
 	    ]
-
-
-
 	]
 
 	
