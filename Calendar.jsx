@@ -140,15 +140,37 @@ Calendar = React.createClass({
 	var length = 250;
 	var fontSizeDate = "14";
 	var fontFamDate = "cursive";
-	
+	var summaryText = ["With my new telescope, I saw 3 stars around Jupiter in a straight line parallel to the ecliptic",
+			   "Provoked by curiosity, tonight I viewed Jupiter again; now 3 stars were all west of Jupiter",
+			   "Unfortunately tonight the sky was covered everywhere with clouds",
+			   "Only 2 stars, to the east! Is a third hiding behind Jupiter? Jupiter can't move that fast; thus the stars must move",
+			   "It appears that 3 stars wander around Jupiter, like Venus and Mercury around the Sun.",
+			   "As I watched, a third star appeared nearest to Jupiter. All 3 little stars were straight on the ecliptic.",
+			   "For the first time I saw 4 separate stars near Jupiter. The eastern star was 2 minutes from Jupiter,",
+			   "and the 3 other stars apart at about 1 minute intervals. But now, on the 14th, the weather was cloudy.",
+			   "About 3 hours after sunset, 4 stars appeared; at 7 hours after, only 3 were in the same straight line.",
+			   "Then 2 stars appeared within a distance of 40 seconds of Jupiter with 1 star 8 minutes from K in the west.",
+			   "Again 2 stars; 4 hours later another emerged, which, I suspect, had been united with the first one."
+			  ];
+
 	drawLines([basex,basey],length,0.1,"grey",dist,25);
+
+	//write text
+	for (var k = 0; k < summaryText.length; k++) {
+	    writeSummaryTextAndDate(k);
+	}
+	
+	//Jan 7
 	drawObservation("jan7",[(basex - 10) + 50,30,6,6,0.4,"2"],
 			[(basex - 10) + 100,31,6,6,0.4,"2"],
 			[(basex - 10) + 193,32,6,6,0.4,"2"],
 			[],
 			[(basex - 10) + 136,34,8,7,"2"]);
-	writeSummaryTextAndDate(0);
 
+	//Jan8
+	
+
+	
 	function writeSummaryTextAndDate(n) {
 	    
 	   d3.select("svg").append("text")
@@ -157,8 +179,8 @@ Calendar = React.createClass({
 		.style("font-family", fontFamDate)
 		.style("font-size", fontSizeDate)
 		.style("fill", "white")
-		.text("" + n+7)
-		.on("mouseover", fullText)
+		.text("" + (n+7))
+		.on("mouseover", function() { return fullText(n);})
 		.on("mouseout", removeFullText);
 
 	    d3.select("svg").append("text")
@@ -167,10 +189,11 @@ Calendar = React.createClass({
 		.style("fill", "white")
 		.style("font-family", "cursive")
 		.style("font-size", "14")
-		.text("With my new telescope, I saw 3 stars around Jupiter in a straight line parallel to the ecliptic");
+		.text(summaryText[n]);
 	}
 
-	function fullText() {
+
+	function fullText(n) {
 
 	    d3.select("svg")
 		.append("rect")
@@ -180,8 +203,9 @@ Calendar = React.createClass({
 		.attr("width", 500)
 		.attr("height", 400)
 		.style("stroke", "white");
+
 	    //fullText needs to know which date we are on
-	    janTypewriter(7,data1[0].length);
+	    janTypewriter(7,data1[n].length);
 	}
 
 	function removeFullText() {
@@ -208,23 +232,24 @@ Calendar = React.createClass({
 		    	      
 	}
 	
-	
-	
-	var data1 = [["On the 7th day of January in the present year, 1610, in the first hour",
-		      " of the following night, when I was viewing the constellations of the",
-		      "heavens through a telescope, the planet Jupiter presented itself to my",
-		      "view, and as I had prepared for myself a very excellent instrument, I",
-		      "noticed a circumstance which I had never been able to notice before,",
-		      "owing to want of power in my other telescope, namely, that three little",
-		      "stars, small but very bright, were near the planet; and although I",
-		      "believed them to belong to the number of the fixed stars, yet they made",
-		      "me somewhat wonder, because they seemed to be arranged exactly in a",
-		      "straight line, parallel to the ecliptic, and to be brighter than the",
-		      "rest of the stars, equal to them in magnitude."
-		     ]
+	var data1 = [
+	    //jan 7
+	    ["On the 7th day of January in the present year, 1610, in the first hour",
+	     " of the following night, when I was viewing the constellations of the",
+	     "heavens through a telescope, the planet Jupiter presented itself to my",
+	     "view, and as I had prepared for myself a very excellent instrument, I",
+	     "noticed a circumstance which I had never been able to notice before,",
+	     "owing to want of power in my other telescope, namely, that three little",
+	     "stars, small but very bright, were near the planet; and although I",
+	     "believed them to belong to the number of the fixed stars, yet they made",
+	     "me somewhat wonder, because they seemed to be arranged exactly in a",
+	      "straight line, parallel to the ecliptic, and to be brighter than the",
+	     "rest of the stars, equal to them in magnitude."
+	    ]
 
 
-		    ]
+
+	]
 
 	
     },
