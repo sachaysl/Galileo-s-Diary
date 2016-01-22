@@ -140,16 +140,16 @@ Calendar = React.createClass({
 	var length = 250;
 	var fontSizeDate = "14";
 	var fontFamDate = "cursive";
-	var summaryText = ["With my new telescope, I saw 3 stars around Jupiter in a straight line parallel to the ecliptic",
-			   "Provoked by curiosity, tonight I viewed Jupiter again; now 3 stars were all west of Jupiter",
-			   "Unfortunately tonight the sky was covered everywhere with clouds",
-			   "Only 2 stars, to the east! Is a third hiding behind Jupiter? Jupiter can't move that fast; thus the stars must move",
+	var summaryText = ["With my new telescope, I saw 3 stars around Jupiter in a straight line parallel to the ecliptic.",
+			   "Provoked by curiosity, tonight I viewed Jupiter again; now 3 stars were all west of Jupiter.",
+			   "Unfortunately tonight the sky was covered everywhere with clouds.",
+			   "Only 2 stars, to the east! Is a third hiding behind Jupiter? Jupiter can't move that fast.",
 			   "It appears that 3 stars wander around Jupiter, like Venus and Mercury around the Sun.",
 			   "As I watched, a third star appeared nearest to Jupiter. All 3 little stars were straight on the ecliptic.",
 			   "For the first time I saw 4 separate stars near Jupiter. The eastern star was 2 minutes from Jupiter,",
-			   "and the 3 other stars apart at about 1 minute intervals. But now, on the 14th, the weather was cloudy.",
+			   "and the 3 other stars apart at about 1 minute intervals. But now, the weather was cloudy.",
 			   "About 3 hours after sunset, 4 stars appeared; at 7 hours after, only 3 were in the same straight line.",
-			   "Then 2 stars appeared within a distance of 40 seconds of Jupiter with 1 star 8 minutes from K in the west.",
+			   "Then 2 stars appeared within a distance of 40 seconds of Jupiter with 1 star 8 minutes from J.",
 			   "Again 2 stars; 4 hours later another emerged, which, I suspect, had been united with the first one."
 			  ];
 
@@ -187,7 +187,7 @@ Calendar = React.createClass({
 		.attr("x", basex + length + 10)
 		.attr("y", basey - 2 + (n * 25))
 		.style("fill", "white")
-		.style("font-family", "cursive")
+		.style("font-family", "cambria")
 		.style("font-size", "14")
 		.text(summaryText[n]);
 	}
@@ -200,7 +200,7 @@ Calendar = React.createClass({
 		.attr("id","#fulltext")
 		.attr("x", 300)
 		.attr("y", 100)
-		.attr("width", 500)
+		.attr("width", 520)
 		.attr("height", 400)
 		.style("stroke", "white");
 
@@ -223,9 +223,9 @@ Calendar = React.createClass({
 		    .attr("id","Line" + i)
 		    .attr("x", 350)
 		    .attr("y", 170 + i * 25)
-		    .style("font-family", "cursive")
+		    .style("font-family", "cambria")
 		    .style("font-size", "14")
-		    .style("fill", "white")
+		    .style("fill", "rgb(178,255,255)")
 	            .text(data1[day-7][i]);
 	    
 	    }
@@ -282,7 +282,7 @@ Calendar = React.createClass({
 	return(
 
 	    <div textAlign = "center" >
-	      <svg style = {this.svgStyle} height="600" width="850">		
+	      <svg style = {this.svgStyle} height="600" width="880">		
 	      </svg>
 	    </div>
 	);
